@@ -1,5 +1,55 @@
-<ul>
-	<% @tweets.each do |tweet| %>
-		<li><%= tweet.content %></li>
-	<% end %>	
-</ul>
+<div class="jumbotron">
+
+	<div class="container">
+      <h1>News Feed</h1>
+	    <ul class="list-group">
+			
+
+
+
+        <% @tweets.each do |tweet| %>
+        <li class="list-group-item">
+           <%= tweet.user.profile.profile_name %>: 
+            <%= tweet.content %> : 
+
+
+            <%= simple_form_for @relationship do |f| %>
+            <%= f.input :followed_id, as: :hidden, input_html: {value: tweet.user.id} %>
+              <% if current_user.following?(tweet.user) %>
+              <%= f.button :submit, class: 'btn btn-danger', value: 'Unfollow' %>
+              <% else %>
+              <%= f.button :submit, class: 'btn btn-primary', value: 'Follow' %>
+              <%end%>
+            <%end%>
+        </li>
+  		  <% end %>	
+		  </ul>
+  </div>
+
+
+
+
+
+
+
+
+
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-4">
+          <h2>Best Tweets</h2>
+          <p>"Macgill: The pizza will be here in 30 minutes"</p>
+        </div>
+        <div class="col-md-4">
+          <h2>Where's Phil?</h2>
+          <p>Fulton 160</p>
+       </div>
+        <div class="col-md-4">
+          <h2>Hottest Singles</h2>
+          <p>Macgill Davis</p>
+        </div>
+      </div>
+    </div>
+</div>

@@ -4054,6 +4054,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   margin-bottom: 20px;
   border: 1px solid transparent;
 }
+
 @media (min-width: 768px) {
   .navbar {
     border-radius: 4px;
@@ -4843,6 +4844,10 @@ a.badge:focus {
   color: inherit;
   background-color: #eee;
 }
+.other-color{
+    background: green
+  }
+  
 .jumbotron h1,
 .jumbotron .h1 {
   color: inherit;

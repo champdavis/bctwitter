@@ -26,9 +26,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'simple_form'
 
 gem 'devise'
+
+gem 'carrierwave'
 # Use Unicorn as the app server
 # gem 'unicorn'
-
+gem 'twitter-text', '~> 1.10.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

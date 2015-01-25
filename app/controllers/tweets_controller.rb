@@ -12,15 +12,18 @@ class TweetsController < ApplicationController
 	def create 
 		@tweet = Tweet.new(tweet_params)
 		@tweet.user=current_user
-		@tweet.save
+
 		@tweets = current_user.tweets
 
-		flash.now[:success] = "Saved Your Tweet"
+		if @tweet.save
+			flash.now[:success] = "Saved Your Tweet"
+		end
 		render 'new'
 	end
 
 	def index
 		@tweets = Tweet.all.reject{ |tweet| tweet.user == current_user}
+		@relationship = Relationship.new
 	end
 
 	private 
