@@ -14,9 +14,13 @@ class TweetsController < ApplicationController
 		@tweet.user=current_user
 		@tweet.save
 		@tweets = current_user.tweets
-		
+
 		flash.now[:success] = "Saved Your Tweet"
 		render 'new'
+	end
+
+	def index
+		@tweets = Tweet.all.reject{ |tweet| tweet.user == current_user}
 	end
 
 	private 
